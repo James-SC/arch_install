@@ -1,0 +1,11 @@
+label: gpt
+label-id: BF5CBB35-6FF7-4E44-8ADA-E42B8EED3144
+device: /dev/sdb
+unit: sectors
+first-lba: 34
+last-lba: 250069646
+sector-size: 512
+
+/dev/sdb1 : start=        2048, size=     1048576, type=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, uuid=C3407B04-5A9D-3641-94D3-6DD8046A5983
+/dev/sdb2 : start=     1050624, size=   181909504, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=C623FFE4-7E1F-DB41-A0E3-D5A748F2AAF9
+/dev/sdb3 : start=   182960128, size=    67108864, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=EEFF28CD-23FA-417F-8D87-F5EAD76817EA, name="homee"

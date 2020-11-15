@@ -1,0 +1,16 @@
+   26  mount subvol=arch /dev/sda2 
+   27  mount subvol=arch /dev/sda2 /mnt
+   28  mount -o subvol=arch /dev/sda2 /mnt
+   29  cd /mnt
+   31  mkdir boot
+   33  mount /dev/sda1 boot
+   34  ls /mmnt
+   35  cd ~/arecovery/new
+   36  ./01-note.sh
+   37  ./02-install-base.sh
+   38  cat 1-conf-1.sh
+   40  cp -a ~/arecovery /mnt/root
+   42  cp ~/mirrorlist.bak /mnt/root/arecovery/new
+   43  arch-chroot /mnt
+   45  ..
+   46  ls

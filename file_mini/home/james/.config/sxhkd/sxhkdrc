@@ -1,0 +1,172 @@
+# Reload functions
+# super + Escape
+	# "$XDG_CONFIG_HOME"/sxhkd/functions
+
+# To spawn the terminal
+super + Return
+   alacritty
+super + shift + Return
+   xfce4-terminal
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# program launcher
+super + d
+   dmenu_run
+
+super + @space
+   rofi -show drun -theme Arc-Dark
+
+# quit/restart bspwm
+shift + super + {z,r}
+  bspc {quit,wm -r}
+# power
+super + z ; {super + z, super + a, q, p, r}
+    { \
+     betterlockscreen --off 30 -l blur \
+    ,betterlockscreen -s blur \
+    ,bspc quit \
+    ,poweroff \
+    ,reboot \
+    }
+
+# printscreen   
+# {_, ctrl + } @Print
+#    { \
+#    flameshot full -c -p /home/james/Pictures/tmp \
+#    , flameshot gui \
+#    }
+
+{_, shift  + ,  ctrl + } @Print
+   { \
+    scrot -f -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/tmp' \
+    # scrot -f /home/james/Pictures/tmp/%yy-%mm-%dd-%hhmmss_$wx$h_scrot.png -e 'xclip -selection clipboard -target image/png -i $f' \
+    , scrot -u -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/tmp' \
+    , scrot -s -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/tmp' \
+   }
+
+# ===============================
+# ===========windows=============
+# ===============================
+
+super + {_,shift + }q
+   bspc node -{c,k}
+super + {_,shift + }BackSpace
+   bspc node -{c,k}
+#super + {t,ctrl + t, s, f}
+#   bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# windows  format
+super + s
+   bspc node -t "~"{floating,tiled}
+super + f
+   bspc node -t "~"{fullscreen,tiled}
+super + t
+   bspc node -t "~"{pseudo_tiled,tiled}
+super + {h, v, r}
+   bspc node -p {east, south, cancel}
+# dasktop layout
+super + m
+   bspc desktop -l next
+# set the node flags
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
+
+# 
+# focus/swap
+#
+
+# focus to the biggst/smallist node
+super + {_, shift + } g
+   bspc node -s {biggest,smallest}.local
+super + {_,shift + }{j,k,i,l}
+   bspc node -{f,s} {west,south,north,east}
+
+super + alt + {j,k,i,l}
+   bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0} # expand a windows
+super + alt + shift + {j,k,i,l}
+   bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0} # contract a  windows
+super + ctrl +{j,k,i,l}
+   bspc node -v {-20 0,0 20,0 -20,20 0} # Move floating windows
+super + {p,b,comma,period}
+   bspc node -f @{parent,brother,first,second}
+super + {o,n}
+   bspc wm -h off; bspc node {older,newer} -f; bspc wm -h on
+#super + {_,shift + }{1-9,0}
+#   bspc {desktop -f,node -d} '^{1-9,10}'
+super + {1-9,0}
+   bspc desktop -f '^{1-9,10}'
+super + shift + {1-9,0}
+   DIR='^{1-9,10}'; \
+   bspc node -d "$DIR"; \
+   bspc desktop -f "$DIR"
+super + alt + {1-9,0}
+   mpc -q seek {0-9}0%
+alt + {_,shift + } Tab
+   bspc node -f {prev,next}.local
+super + {Tab,grave}
+   bspc {node,desktop} -f last
+# focus the next/previous desktop in the current monitor
+super + Page_{Up,Down}
+   bspc desktop -f {prev,next}.local
+super + shift + Page_{Up,Down}
+   DIR={prev,next}; \
+   bspc node -d "$DIR".local; \
+   bspc desktop -f "$DIR".local
+super + bracket{left,right}
+   bspc desktop -f {prev,next}.local
+
+# ============================
+# ====System Fn keybanding====
+# ============================
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +3%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -3%
+
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+
+XF86MonBrightnessUp
+    xbacklight -inc 5
+
+XF86MonBrightnessDown
+    xbacklight -dec 5
+
+#
+# application
+#
+
+super + w
+   firefox
+   # google-chrome-stable
+super + a ; {b,g,s,m,r,t,f,x,v,z,y,k}
+   { \
+     bluetooth-sendto \
+    ,google-chrome-stable \
+    ,fsearch \
+    ,netease-cloud-music  \
+    ,ranger \
+    ,alacritty \
+    ,thunar \
+    ,/wdata/apps/noname/noname & \
+    ,vim \
+    ,zathura \
+    ,xeyes \
+    ,oneko \
+   }
+super + shift + a ; {d,l}
+    { /home/james/bin/setdarktheme.sh & \
+     bspc wm -r \
+     ,/home/james/bin/setlighttheme.sh & \
+     bspc wm -r \
+    }
+super + a ; super + {d,l}
+    { /home/james/bin/setdarktheme.sh & \
+     bspc wm -r \
+     ,/home/james/bin/setlighttheme.sh & \
+     bspc wm -r \
+    }
+

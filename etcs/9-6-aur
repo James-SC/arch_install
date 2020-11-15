@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /home/james
+git clone https://aur.archlinux.org/yay.git
+curl curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
+tar zxvf yay.tar.gz
+cd yay
+makepkg -si
+# yay oh-my-zsh 
+# betterlockscreen-git polybar flameshot 

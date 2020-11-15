@@ -1,0 +1,16 @@
+   39  mount -o subvol=arch /dev/sdb2 /mnt
+   40  mkdir /mnt/boot
+   41  mount /dev/sdb1 /mnt/boot
+   42  cat ./02-install-base.sh
+   43  ./02-install-base.sh
+   44* pacman -S fbgrab
+   45* fbgrab ../../chen.fbgrab.png
+   47  cp -a ../new /mnt/root
+   48  arch-chroot /mnt
+   49* htop
+   50* sftp localhost
+   51* ip addr
+   52* cd ../..
+   53* ls
+   54* cp b-mountains.jpg /mnt/usr/share
+   55* exit

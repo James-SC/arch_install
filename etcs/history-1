@@ -1,0 +1,46 @@
+    1  sftp -P3411 james@192.168.2.31
+    2  exit
+    3  ls
+    4  cd ~/arecovery/new/
+    5  ./1-conf-1.sh 
+    6  cat ./2-install-1.sh 
+    7  cat ./2-install-1.sh 
+    8   ./2-install-1.sh 
+    9  ls
+   10  cat ./2-install-1.sh 
+   11  vim 2-install-1.sh 
+   12   ./2-install-1.sh 
+   13   ./2-install-1.sh 
+   14  vim /etc/pacman.d/mirrorlist 
+   15  vim 2-install-1.sh 
+   16  vim packs1.txt 
+   17   ./2-install-1.sh 
+   18  vim /etc/pacman.conf 
+   19  vim /etc/pacman.d/mirrorlist 
+   20  vim /etc/pacman.d/mirrorlist 
+   21  exit
+   22  cd ~/arecovery/new/
+   23  ls
+   24  cat mirrorlist.bak > /etc/pacman.d/mirrorlist 
+   25  vim /etc/pacman.d/mirrorlist 
+   26  pacman -Syy
+   27   ./2-install-1.sh 
+   28   ./2-install-1.sh 
+   29  pacman -S archlinucn-keyring
+   30  pacman -S archlinuxcn-keyring
+   31  pacman -Sy
+   32  pacman -Syu
+   33   ./2-install-1.sh 
+   34   ./2-install-1.sh 
+   35  cp 2-install-1.sh enable.sh
+   36  vim enable.sh 
+   37  ./enable.sh 
+   38  ./enable.sh 
+   39  cat 3-conf-2.sh 
+   40  ./3-conf-2.sh 
+   41  cat 4-copy 
+   42  sftp -P3411 james@192.168.2.31
+   43  chown james:users /home/james/ -r
+   44  chown james:users /home/james/ -R
+   45  history | history-1
+   46  history > history-1

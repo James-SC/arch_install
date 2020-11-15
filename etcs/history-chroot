@@ -1,0 +1,17 @@
+    1  cd root/new/
+    2  ls
+    3  cat ./1-conf-1.sh 
+    4  ./1-conf-1.sh 
+    5  cat ./2-1-install.sh 
+    6  ./2-1-install.sh 
+    7  cat ./2-2-services.sh 
+    8  ./2-2-services.sh 
+    9  ./2-2-services.sh 
+   10  ./3-conf-2.sh 
+   11  cat 4-copy 
+   12  cat 5-install-aur.sh 
+   13  cp 5-install-aur.sh /home/james/
+   14  cp packs2.txt /home/james/
+   15  chown -R james:users /home/james/
+   16  su james
+   17  history > history-chroot

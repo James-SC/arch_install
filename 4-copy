@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "/usr/share/backgrounds"
+echo "/usr/share/fonts"
+echo "/wdata/ar.../james/"
+echo "chown james:users -R /home/james"

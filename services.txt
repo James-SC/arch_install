@@ -1,0 +1,1 @@
+systemd-networkd systemd-resolved iwd dhcpd dhcp sshd cronie haveged bluetooth vsftpd tlp rsyncd docker
