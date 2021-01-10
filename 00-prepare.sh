@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 # Network
 echo "Connect to wifi 咱们家_5G"
 iwctl station wlan0 scan on
@@ -18,6 +20,8 @@ timedatectl set-ntp true
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 pacman -R reflector
 sed -i '1i\Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
+sed -i '1i\Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch ' /etc/pacman.d/mirrorlist
+sed -i '1i\Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
 pacman -Sy
 pacman -Syy
 
